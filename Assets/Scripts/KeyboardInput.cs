@@ -3,12 +3,18 @@ using UnityEngine;
 
 namespace Lessons.Architecture.GameSystem
 {
-    public sealed class KeyboardInput : MonoBehaviour
+    public sealed class KeyboardInput : MonoBehaviour, IUpdatable
     {
-        public Action<Vector2> OnMove;
+        private IUserInputListener[] userInputListeners;
 
-        private void Update()
+        private void Awake()
         {
+            userInputListeners = transform.parent.GetComponentsInChildren<IUserInputListener>();
+        }
+
+        public void CustomUpdate()
+        {
+
             this.HandleKeyboard();
         }
 
@@ -34,7 +40,10 @@ namespace Lessons.Architecture.GameSystem
 
         private void Move(Vector2 direction)
         {
-            this.OnMove?.Invoke(direction);
+            foreach (var listener in userInputListeners) 
+            {
+                listener.UserInputReceived(direction);
+            }
         }
     }
 }
