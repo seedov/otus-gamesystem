@@ -1,20 +1,18 @@
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using UnityEngine;
 
 namespace Lessons.Architecture.GameSystem
 {
     public sealed class KeyboardInput : MonoBehaviour, IUpdatable
     {
-        private IUserInputListener[] userInputListeners;
-
-        private void Awake()
-        {
-            userInputListeners = transform.parent.GetComponentsInChildren<IUserInputListener>();
-        }
+        [Inject]
+        private IEnumerable<IUserInputListener> userInputListeners;
 
         public void CustomUpdate()
         {
-
             this.HandleKeyboard();
         }
 

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum GameState
@@ -12,12 +13,8 @@ public class GameStateController : MonoBehaviour
 {
     public GameState state;
 
-    private IGameStateListener[] gameStateListeners;
-
-    private void Awake()
-    {
-        gameStateListeners = transform.parent.GetComponentsInChildren<IGameStateListener>();
-    }
+    [Inject]
+    private IEnumerable<IGameStateListener> gameStateListeners;
 
     [ContextMenu("Start")]
     public void StartGame()
