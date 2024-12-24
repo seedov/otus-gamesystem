@@ -110,7 +110,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6122019643414907880}
-  - component: {fileID: 405618207817354525}
   m_Layer: 0
   m_Name: SpawnPonint
   m_TagString: Untagged
@@ -133,18 +132,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6409399928915269126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &405618207817354525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2889659231299666507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fa13026515e7f14aa95dcb596b5f07a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4394532562651560948
 GameObject:
   m_ObjectHideFlags: 0
