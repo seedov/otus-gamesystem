@@ -1,21 +1,27 @@
+using System;
 using UnityEngine;
+using Zenject;
 
 namespace Lessons.Architecture.GameSystem
 {
-    public sealed class MoveController : MonoBehaviour
+    public sealed class MoveController : IInitializable, IDisposable
     {
-        [SerializeField]
-        private Player player;
 
-        [SerializeField]
+        private Player player;
         private KeyboardInput input;
 
-        private void Start()
+        public MoveController(Player player, KeyboardInput input)
+        {
+            this.player = player;
+            this.input = input;
+        }
+
+        public void Initialize()
         {
             input.OnMove += OnMove;
         }
 
-        private void OnDestroy()
+        public void Dispose()
         {
             input.OnMove -= OnMove;
         }

@@ -5,7 +5,7 @@ using Zenject;
 
 public class Turel : MonoBehaviour
 {
-    [SerializeField]
+    [Inject]
     Player player;
 
 
