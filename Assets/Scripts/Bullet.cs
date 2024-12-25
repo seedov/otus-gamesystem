@@ -1,13 +1,6 @@
-using System;
-using System.Runtime.CompilerServices;
-using NUnit.Framework.Interfaces;
-using UnityEngine;
-using Zenject;
 
-public interface IBulletHit
-{
-    void Hit();
-}
+using UnityEngine;
+
 public class Bullet : MonoBehaviour
 {
 

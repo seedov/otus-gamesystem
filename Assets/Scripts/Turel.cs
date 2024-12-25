@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Lessons.Architecture.GameSystem;
 using UnityEngine;
-using Zenject;
 
 public class Turel : MonoBehaviour
 {
@@ -13,10 +12,5 @@ public class Turel : MonoBehaviour
     public void Update()
     {
         transform.LookAt(player.GetPosition());
-    }
-
-    public void Initialize()
-    {
-      
     }
 }
