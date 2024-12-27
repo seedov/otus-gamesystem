@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Lessons.Architecture.GameSystem
+namespace Lessons.Architecture.VContainer
 {
     public sealed class Player : MonoBehaviour
     {

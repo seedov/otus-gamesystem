@@ -1,16 +1,20 @@
-using System.Collections.Generic;
-using Lessons.Architecture.GameSystem;
+
 using UnityEngine;
+using VContainer;
 
-public class Turel : MonoBehaviour
+
+namespace Lessons.Architecture.VContainer
 {
-    [SerializeField]
-    Player player;
-
-
-
-    public void Update()
+    public class Turel : MonoBehaviour
     {
-        transform.LookAt(player.GetPosition());
+        [Inject]
+        Player player;
+
+
+
+        public void Update()
+        {
+            transform.LookAt(player.GetPosition());
+        }
     }
 }

@@ -1,32 +1,39 @@
 using System;
 using UnityEngine;
+using VContainer.Unity;
 
-namespace Lessons.Architecture.GameSystem
+namespace Lessons.Architecture.VContainer
 {
-    public sealed class KeyboardInput : MonoBehaviour
+    public sealed class KeyboardInput : ITickable
     {
         public Action<Vector2> OnMove;
+        private IKeyboardInputConfig config;
 
-        private void Update()
+        public KeyboardInput(IKeyboardInputConfig config)
+        {
+            this.config = config;
+        }
+
+        void ITickable.Tick()
         {
             this.HandleKeyboard();
         }
 
         private void HandleKeyboard()
         {
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(config.Up))
             {
                 this.Move(Vector2.up);
             }
-            else if (Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetKey(config.Down))
             {
                 this.Move(Vector2.down);
             }
-            else if (Input.GetKey(KeyCode.LeftArrow))
+            else if (Input.GetKey(config.Left))
             {
                 this.Move(Vector2.left);
             }
-            else if (Input.GetKey(KeyCode.RightArrow))
+            else if (Input.GetKey(config.Right))
             {
                 this.Move(Vector2.right);
             }

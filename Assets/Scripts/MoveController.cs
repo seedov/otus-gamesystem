@@ -1,21 +1,27 @@
+using System;
 using UnityEngine;
+using VContainer;
+using VContainer.Unity;
 
-namespace Lessons.Architecture.GameSystem
+namespace Lessons.Architecture.VContainer
 {
-    public sealed class MoveController : MonoBehaviour
+    public sealed class MoveController : IInitializable, IDisposable
     {
-        [SerializeField]
         private Player player;
-
-        [SerializeField]
         private KeyboardInput input;
 
-        private void Start()
+        public MoveController(Player player, KeyboardInput input)
+        {
+            this.player = player;
+            this.input = input;
+        }
+
+        void IInitializable.Initialize()
         {
             input.OnMove += OnMove;
         }
 
-        private void OnDestroy()
+        void IDisposable.Dispose()
         {
             input.OnMove -= OnMove;
         }
