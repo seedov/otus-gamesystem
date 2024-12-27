@@ -9,9 +9,6 @@ public class BulletsSpawner : MonoBehaviour
     [SerializeField]
     private Bullet bulletPrefab;
 
-    [Inject]
-    private BulletConfig bulletConfig;
-
     private bool isDisabled;
 
     private float bulletLifetime = .5f;
