@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eecbd6e92a1be1544bd5f33476669634, type: 3}
-  m_Name: Config
+  m_Script: {fileID: 11500000, guid: f7d9724d43a75eb46a5c3f5d26bd2b35, type: 3}
+  m_Name: InputConfig
   m_EditorClassIdentifier: 
   bulletConfig:
-    speed: 1
-    lifetime: 0.5
+    speed: 0
+    lifetime: 0
   keyboardInputConfig:
-    up: 119
-    left: 97
-    down: 115
-    right: 100
+    up: 0
+    left: 0
+    down: 0
+    right: 0

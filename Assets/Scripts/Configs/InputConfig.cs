@@ -4,15 +4,12 @@ using UnityEngine;
 
 
 
-[CreateAssetMenu(fileName = "Config", menuName = "Scriptable Objects/Config")]
-public class Config : ScriptableObject
+[CreateAssetMenu(fileName = "InputConfig", menuName = "Scriptable Objects/InputConfig")]
+public class InputConfig : ScriptableObject
 {
-    [SerializeField]
-    private BulletConfig bulletConfig;
     [SerializeField]
     private KeyboardInputConfig keyboardInputConfig;
 
-    public IBulletsConfig BulletsConfig => bulletConfig;
     public IKeyboardInputConfig KeyboardInputConfig => keyboardInputConfig;
 
 }
@@ -24,11 +21,7 @@ public interface IKeyboardInputConfig
     public KeyCode Down { get; }
     public KeyCode Right { get; }
 }
-public interface IBulletsConfig
-{
-    public float Speed { get; }
-    public float Lifetime { get; }
-}
+
 
 [Serializable]
 public class KeyboardInputConfig : IKeyboardInputConfig
@@ -45,17 +38,4 @@ public class KeyboardInputConfig : IKeyboardInputConfig
     public KeyCode Down => down;
 
     public KeyCode Right => right;
-}
-
-[Serializable]
-public class BulletConfig: IBulletsConfig
-{
-    [SerializeField]
-    private float speed;
-
-    [SerializeField]
-    private float lifetime;
-
-    public float Speed => speed;
-    public float Lifetime => lifetime;
 }
