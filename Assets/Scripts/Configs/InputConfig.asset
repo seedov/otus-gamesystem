@@ -12,11 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d9724d43a75eb46a5c3f5d26bd2b35, type: 3}
   m_Name: InputConfig
   m_EditorClassIdentifier: 
-  bulletConfig:
-    speed: 0
-    lifetime: 0
   keyboardInputConfig:
-    up: 0
-    left: 0
-    down: 0
-    right: 0
+    up: 119
+    left: 97
+    down: 115
+    right: 100

@@ -4,7 +4,7 @@ using VContainer.Unity;
 
 namespace Lessons.Architecture.VContainer
 {
-    public sealed class KeyboardInput : ITickable
+    public sealed class KeyboardInput : IPauseTickable
     {
         public Action<Vector2> OnMove;
         private IKeyboardInputConfig config;
@@ -14,7 +14,7 @@ namespace Lessons.Architecture.VContainer
             this.config = config;
         }
 
-        void ITickable.Tick()
+        void IPauseTickable.Tick()
         {
             this.HandleKeyboard();
         }

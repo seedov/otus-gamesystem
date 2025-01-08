@@ -67,8 +67,8 @@
     <Compile Include="Library\PackageCache\jp.hadashikick.vcontainer\Runtime\Container.cs" />
     <Compile Include="Library\PackageCache\jp.hadashikick.vcontainer\Runtime\Annotations\AwaitableExtensions.cs" />
     <Compile Include="Library\PackageCache\jp.hadashikick.vcontainer\Runtime\Unity\ParentReference.cs" />
-    <Compile Include="Library\PackageCache\jp.hadashikick.vcontainer\Runtime\IObjectResolverExtensions.cs" />
     <Compile Include="Library\PackageCache\jp.hadashikick.vcontainer\Runtime\Internal\BuilderCallbackDisposable.cs" />
+    <Compile Include="Library\PackageCache\jp.hadashikick.vcontainer\Runtime\IObjectResolverExtensions.cs" />
     <Compile Include="Library\PackageCache\jp.hadashikick.vcontainer\Runtime\Internal\ListPool.cs" />
     <Compile Include="Library\PackageCache\jp.hadashikick.vcontainer\Runtime\Unity\ObjectResolverUnityExtensions.cs" />
     <Compile Include="Library\PackageCache\jp.hadashikick.vcontainer\Runtime\IInstanceProvider.cs" />

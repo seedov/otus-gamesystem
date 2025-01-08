@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eecbd6e92a1be1544bd5f33476669634, type: 3}
-  m_Name: WeaponConfig
+  m_Name: WeaponConfigHealer
   m_EditorClassIdentifier: 
   bulletConfig:
-    speed: 1
-    lifetime: 1
+    speed: 0.5
+    lifetime: 0.3

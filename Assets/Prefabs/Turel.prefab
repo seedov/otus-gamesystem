@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6816563766454142243}
   - component: {fileID: 1074766704809355746}
   - component: {fileID: 8553095938380882023}
+  - component: {fileID: 2798276016246508210}
   m_Layer: 0
   m_Name: Turel
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 600812053581990296}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -3.42}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -101,6 +102,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c635f0dfc993514a84fbaf387e039e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2798276016246508210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600812053581990296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3817ba6725fc1fd4192c49578b5e19be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: GameLifetimeScope
+  autoRun: 1
+  autoInjectGameObjects:
+  - {fileID: 600812053581990296}
 --- !u!1 &2889659231299666507
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d679be99abbf1874eba6f9cc162d82b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6187693591405230525, guid: 76d887667c5f93c468049c91ad17f33c, type: 3}
+  bulletPrefab: {fileID: 6864758808863621575, guid: 76d887667c5f93c468049c91ad17f33c, type: 3}
 --- !u!1 &4394532562651560948
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,47 +1,68 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-public class BulletsSpawner : MonoBehaviour
+namespace Lessons.Architecture.VContainer
 {
-    [SerializeField]
-    private Bullet bulletPrefab;
-
-    private bool isDisabled;
-
-    private float bulletLifetime = .5f;
-    private float shotDelay = 1;
-
-    void OnEnable()
+    public class BulletsSpawner : MonoBehaviour,  IPauseTickable
     {
-        isDisabled = false;
-        StartCoroutine(StartShooting());
-    }
+        [SerializeField]
+        private Bullet bulletPrefab;
 
-    private void OnDisable()
-    {
-        isDisabled = true;
-    }
+        private IObjectResolver objectResolver;
 
-    IEnumerator StartShooting()
-    {
-        while (!isDisabled)
+        private List<Bullet> spawnedBullets = new();
+
+        private float timeSinceLastShot;
+
+
+        private float shotDelay = 1f;
+        private int index;
+
+        [Inject]
+        private void Construct(IObjectResolver objectResolver)
         {
-            StartCoroutine(BulletLifecycleCoroutine());
-            yield return new WaitForSeconds(shotDelay);
+            this.objectResolver = objectResolver;
+        }
+
+        private void CreateBullet()
+        {
+            Bullet b = objectResolver.Instantiate<Bullet>(bulletPrefab);
+
+            b.name = $"Bullet_{index}";
+            b.transform.position = transform.position;
+            b.transform.rotation = transform.rotation;
+            b.Destroyed += ProcessBulletDestroyedEvent;
+            spawnedBullets.Add(b);
+
+        }
+
+        private void ProcessBulletDestroyedEvent(Bullet bullet)
+        {
+            bullet.Destroyed -= ProcessBulletDestroyedEvent;
+            spawnedBullets.Remove(bullet);
+        }
+
+
+        void IPauseTickable.Tick()
+        {
+            if (timeSinceLastShot >= shotDelay)
+            {
+                timeSinceLastShot = 0;
+                CreateBullet();
+
+                ++index;
+            }
+            timeSinceLastShot += Time.deltaTime;
+
+            for(var i = 0; i<spawnedBullets.Count; ++i)
+            {
+                var bullet = spawnedBullets[i];
+                bullet.CustomUpdate();
+            }
         }
     }
-
-    private IEnumerator BulletLifecycleCoroutine()
-    {
-        var b = Instantiate(bulletPrefab);
-        b.transform.position = transform.position;
-        b.transform.rotation = transform.rotation;
-        yield return new WaitForSeconds(bulletLifetime);
-        Destroy(b.gameObject);
-    }
-
-
 }

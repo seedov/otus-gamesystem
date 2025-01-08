@@ -5,14 +5,13 @@ using VContainer;
 
 namespace Lessons.Architecture.VContainer
 {
-    public class Turel : MonoBehaviour
+    public class Turel : MonoBehaviour, IPauseTickable
     {
         [Inject]
         Player player;
 
 
-
-        public void Update()
+        void IPauseTickable.Tick()
         {
             transform.LookAt(player.GetPosition());
         }

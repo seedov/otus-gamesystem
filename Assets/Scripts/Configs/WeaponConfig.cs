@@ -17,6 +17,8 @@ public interface IBulletsConfig
 {
     public float Speed { get; }
     public float Lifetime { get; }
+
+    public float AffectHp { get; }
 }
 
 
@@ -29,6 +31,10 @@ public class BulletConfig: IBulletsConfig
     [SerializeField]
     private float lifetime;
 
+    [SerializeField]
+    private float affectHp;
+
     public float Speed => speed;
     public float Lifetime => lifetime;
+    public float AffectHp => affectHp;
 }
