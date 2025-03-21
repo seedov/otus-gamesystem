@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
 using Lessons.Architecture.VContainer;
 using UnityEngine;
 using VContainer;
-using VContainer.Internal;
 using VContainer.Unity;
 
 public class GameLifetimeScope : LifetimeScope
@@ -12,6 +9,8 @@ public class GameLifetimeScope : LifetimeScope
     private InputConfig keyboardKonfig;    
     [SerializeField]
     private WeaponConfig weaponConfig;
+
+    private PausableTickersDispatcher gameLoopManager;
 
     protected override void Configure(IContainerBuilder builder)
     {
@@ -30,10 +29,13 @@ public class GameLifetimeScope : LifetimeScope
 
         builder.RegisterBuildCallback(container =>
         {
-            var gameLoopManager = container.Resolve<PausableTickersDispatcher>();
+            gameLoopManager = container.Resolve<PausableTickersDispatcher>();
             gameLoopManager.StartDispatching(container);
         });
-
+        builder.RegisterDisposeCallback(container =>
+        {
+            gameLoopManager.StopDispatching(container);
+        });
 
     }
 

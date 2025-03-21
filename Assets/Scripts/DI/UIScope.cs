@@ -6,8 +6,7 @@ using VContainer.Unity;
 
 public class UIScope : LifetimeScope
 {
-    private GameEventsDispatcher gameController;
-    private IReadOnlyList<IGameEventListener> thisScopeGameEventListeners;
+    private IEnumerable<IScopeDispatcher> dispatchers;
     protected override void Configure(IContainerBuilder builder)
     {
         RegisterUi(builder);
@@ -21,7 +20,7 @@ public class UIScope : LifetimeScope
 
         builder.RegisterBuildCallback(container =>
         {
-            var dispatchers = container.Resolve<IEnumerable<IScopeDispatcher>>();
+            dispatchers = container.Resolve<IEnumerable<IScopeDispatcher>>();
             foreach (var dispatcher in dispatchers)
             {
                 dispatcher.StartDispatching(container);
@@ -30,7 +29,6 @@ public class UIScope : LifetimeScope
 
         builder.RegisterDisposeCallback(container =>
         {
-            var dispatchers = container.Resolve<IEnumerable<IScopeDispatcher>>();
             foreach (var dispatcher in dispatchers)
             {
                 dispatcher.StopDispatching(container);
