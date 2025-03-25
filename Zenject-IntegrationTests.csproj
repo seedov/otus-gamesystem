@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C2832907-21F5-6ADF-5AE3-68FF6E3E0022}</ProjectGuid>
+    <ProjectGuid>{D0CABF93-EA68-ADD5-965F-3A17BFA65574}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Zenject-IntegrationTests</AssemblyName>
@@ -105,8 +105,8 @@
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Installers\TestMonoInstallers\FooInstaller.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Bindings\TestFromPrefabInstaller\Foo.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Bindings\TestFromSubContainerPrefabResource\Bar.cs" />
-    <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Bindings\TestFromSubContainerPrefabResource\Gorp.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Misc\TestZenAutoInjecter\Bar.cs" />
+    <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Bindings\TestFromSubContainerPrefabResource\Gorp.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Bindings\TestInstantiateCallback\Foo.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Bindings\TestFromGameObjectInstaller\Bar.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Bindings\TestFromPrefabResource\Jim.cs" />
@@ -115,8 +115,8 @@
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Bindings\TestFromPrefabResource\Bob.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Bindings\TestFromPrefab\Gorp.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\SceneContractTests\Decorators\Scene1Installer.cs" />
-    <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Installers\TestMonoInstallers\BarInstaller.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\SceneTests\TestDestructionOrder\Scene1Installer.cs" />
+    <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Installers\TestMonoInstallers\BarInstaller.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\SceneTests\TestDestructionOrder\ProjectInstaller.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Bindings\TestFromPrefabResource\Norf.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\SceneTests\TestDestructionOrder\Scene2Installer.cs" />
@@ -1119,11 +1119,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Zenject-TestFramework.csproj">
-      <Project>{9CBD504B-87E3-0EFE-AE29-72E5DDB666DD}</Project>
+      <Project>{D53BBF2E-ABB0-6F36-E25C-8071F88DC918}</Project>
       <Name>Zenject-TestFramework</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject.csproj">
-      <Project>{10EA0811-763D-363C-CEEF-F72DD4326FA4}</Project>
+      <Project>{BB7BE5B5-B5B1-CCE9-8283-BF133B5B8114}</Project>
       <Name>Zenject</Name>
     </ProjectReference>
   </ItemGroup>

@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{9E9A564F-70B3-E501-98B6-8106C8E66C0A}</ProjectGuid>
+    <ProjectGuid>{7CB56068-CBA9-BCD4-6F6D-0550B38E3407}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Zenject-UnitTests-Editor</AssemblyName>
@@ -80,8 +80,8 @@
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\BindFeatures\TestWithArguments.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\BindFeatures\TestMultipleContractTypes2.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\BindFeatures\TestUnbind.cs" />
-    <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\MemoryPool\TestFromPoolableMemoryPoolSix.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Other\TestGenericContract.cs" />
+    <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\MemoryPool\TestFromPoolableMemoryPoolSix.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Injection\TestPostInjectCall.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\MemoryPool\TestFromPoolableMemoryPoolZero.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Injection\TestStructInjection.cs" />
@@ -130,8 +130,8 @@
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Conventions\Foo.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Injection\TestParameters.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Other\TestValidationSettings.cs" />
-    <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Injection\TestPropertyInjection.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Bindings\TestFromMethodMultiple.cs" />
+    <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Injection\TestPropertyInjection.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Profiling\TestInstantiateApproaches.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Signals\TestSignals1.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Factories\Bindings\TestFactoryFrom1.cs" />
@@ -164,15 +164,15 @@
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Conditions\TestConditionsComplex.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Conditions\TestConditionsFieldName.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\BindFeatures\TestMoveIntoDirectSubContainers.cs" />
-    <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Other\TestSubContainers4.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Signals\TestSignalRuntimeDeclaration.cs" />
+    <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Other\TestSubContainers4.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Conditions\TestConditionsParents.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Factories\Bindings\TestFactoryFromResolve0.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Signals\TestSignalIdentifiers.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Factories\Bindings\TestFactoryWithArguments.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Other\TestDecoratorValidation.cs" />
-    <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Injection\TestPostInjectParameters.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Other\TestAllocs.cs" />
+    <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Injection\TestPostInjectParameters.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\MemoryPool\TestMemoryPoolCustomFactory.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\Injection\TestBaseClassPropertyInjection.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\UnitTests\Editor\BindFeatures\TestMoveIntoAllSubContainers.cs" />
@@ -1190,11 +1190,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Zenject.csproj">
-      <Project>{10EA0811-763D-363C-CEEF-F72DD4326FA4}</Project>
+      <Project>{BB7BE5B5-B5B1-CCE9-8283-BF133B5B8114}</Project>
       <Name>Zenject</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject-TestFramework.csproj">
-      <Project>{9CBD504B-87E3-0EFE-AE29-72E5DDB666DD}</Project>
+      <Project>{D53BBF2E-ABB0-6F36-E25C-8071F88DC918}</Project>
       <Name>Zenject-TestFramework</Name>
     </ProjectReference>
   </ItemGroup>

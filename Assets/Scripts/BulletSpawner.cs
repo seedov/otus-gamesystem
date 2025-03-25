@@ -2,35 +2,42 @@ using System.Collections;
 using UnityEngine;
 using Zenject;
 
-public class BulletSpawner : MonoBehaviour
+public class BulletSpawner : MonoBehaviour, ITickable
 {
 
 
     [Inject]
     private Bullet.Pool bulletsFactory;
 
-    [Inject]
-    private IBulletConfig bulletConfig;
 
     private float timeSinceLastShot;
 
-    private void Update()
+    public void Tick()
     {
+
         timeSinceLastShot += Time.deltaTime;
         if(timeSinceLastShot >= 1)
         {
             timeSinceLastShot = 0;
 
-            StartCoroutine(SpawnBullet());
+            SpawnBullet();
         }
     }
 
-    private IEnumerator SpawnBullet()
+    private void SpawnBullet()
     {
         var bullet = bulletsFactory.Spawn();
+        bullet.OnLifetimeUp += Bullet_OnLifetimeUp;
         bullet.transform.position = transform.position;
         bullet.transform.rotation = transform.rotation;
-        yield return new WaitForSeconds(bulletConfig.Lifetime);
+
+    }
+
+    private void Bullet_OnLifetimeUp(Bullet bullet)
+    {
+        bullet.OnLifetimeUp -= Bullet_OnLifetimeUp;
         bulletsFactory.Despawn(bullet);
     }
+
+
 }
