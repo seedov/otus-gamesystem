@@ -1,18 +1,18 @@
-﻿using VContainer;
+﻿using System;
+using VContainer;
 
 namespace Lessons.Architecture.VContainer
 {
-    public class GameController
+    public class GameController : IDisposable
     {
         private GameEventsDispatcher gameEventsDispatcher;
         private IHealthComponent healthComponent;
 
-        [Inject]
-        private void Construct(GameEventsDispatcher gameEventsDispatcher, IHealthComponent healthComponent)
+        public GameController(GameEventsDispatcher gameEventsDispatcher, IHealthComponent healthComponent)
         {
             this.gameEventsDispatcher = gameEventsDispatcher;
             this.healthComponent = healthComponent;
-            healthComponent.HpChanged += HealthComponent_HpChanged;
+            this.healthComponent.HpChanged += HealthComponent_HpChanged;
         }
 
         private void HealthComponent_HpChanged(float hp)
@@ -41,6 +41,11 @@ namespace Lessons.Architecture.VContainer
         public void FinishGame()
         {
             gameEventsDispatcher.FinishGame();
+        }
+
+        void IDisposable.Dispose()
+        {
+            this.healthComponent.HpChanged -= HealthComponent_HpChanged;
         }
     }
 }

@@ -9,8 +9,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
-    <ProjectGuid>{00A2EC2B-8266-76F4-23DB-128C4410D916}</ProjectGuid>
+    <RootNamespace>
+    </RootNamespace>
+    <ProjectGuid>{8BB06349-2D06-CB5C-EBFA-A2CB31986D04}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -68,20 +69,19 @@
     <Compile Include="Assets\Scripts\DI\Dispatchers\PausableTickersDispatcher.cs" />
     <Compile Include="Assets\Scripts\UI\GameUI.cs" />
     <Compile Include="Assets\Scripts\UI\GameOverScreen.cs" />
-    <Compile Include="Assets\Scripts\DI\Dispatchers\PlayerComponentsDispather.cs" />
     <Compile Include="Assets\Scripts\Player\HPComponent.cs" />
-    <Compile Include="Assets\Scripts\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Player\MoveController.cs" />
     <Compile Include="Assets\Scripts\Pool\IPoolable.cs" />
     <Compile Include="Assets\Scripts\Pool\Pool.cs" />
-    <Compile Include="Assets\Scripts\MoveController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Bullet.cs" />
     <Compile Include="Assets\Scripts\KeyboardInput.cs" />
-    <Compile Include="Assets\Scripts\Turel.cs" />
     <Compile Include="Assets\Scripts\Configs\InputConfig.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BulletsSpawner.cs" />
     <Compile Include="Assets\Scripts\DI\GameLifetimeScope.cs" />
     <Compile Include="Assets\Scripts\DI\UIScope.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Turel.cs" />
     <Compile Include="Assets\Scripts\DI\TurretLifetimeScope.cs" />
     <Compile Include="Assets\Scripts\Player\MoveComponent.cs" />
-    <Compile Include="Assets\Scripts\BulletsSpawner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
