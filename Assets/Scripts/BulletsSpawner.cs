@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
-using VContainer.Unity;
 
 namespace Lessons.Architecture.VContainer
 {
@@ -12,7 +11,7 @@ namespace Lessons.Architecture.VContainer
         [SerializeField]
         private Bullet bulletPrefab;
 
-        private IObjectResolver objectResolver;
+        private Pool<Bullet> bulletsPool;
 
         private List<Bullet> spawnedBullets = new();
 
@@ -23,27 +22,40 @@ namespace Lessons.Architecture.VContainer
         private int index;
 
         [Inject]
-        private void Construct(IObjectResolver objectResolver)
+        private void Construct(Pool<Bullet> pool)
         {
-            this.objectResolver = objectResolver;
+            bulletsPool = pool;
+            bulletsPool.SetPrefab(bulletPrefab);
         }
 
         private void CreateBullet()
         {
-            Bullet b = objectResolver.Instantiate<Bullet>(bulletPrefab);
 
-            b.name = $"Bullet_{index}";
+            var b = bulletsPool.Spawn();
             b.transform.position = transform.position;
             b.transform.rotation = transform.rotation;
-            b.Destroyed += ProcessBulletDestroyedEvent;
+            b.Hit += ProcessBulletHitEvent;
+            b.LifetimeIsOver += BulletLifetimeIsOver;
             spawnedBullets.Add(b);
 
         }
 
-        private void ProcessBulletDestroyedEvent(Bullet bullet)
+        private void DespawnBullet(Bullet bullet)
         {
-            bullet.Destroyed -= ProcessBulletDestroyedEvent;
+            bullet.LifetimeIsOver -= BulletLifetimeIsOver;
+            bullet.Hit -= ProcessBulletHitEvent;
             spawnedBullets.Remove(bullet);
+            bulletsPool.Despawn(bullet);
+        }
+
+        private void BulletLifetimeIsOver(Bullet bullet)
+        {
+            DespawnBullet(bullet);
+        }
+
+        private void ProcessBulletHitEvent(Bullet bullet)
+        {
+            DespawnBullet(bullet);
         }
 
 

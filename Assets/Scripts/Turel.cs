@@ -8,7 +8,7 @@ namespace Lessons.Architecture.VContainer
     public class Turel : MonoBehaviour, IPauseTickable
     {
         [Inject]
-        Player player;
+        MoveComponent player;
 
 
         void IPauseTickable.Tick()

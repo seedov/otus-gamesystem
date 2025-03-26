@@ -1,9 +1,11 @@
+using System;
 using Lessons.Architecture.VContainer;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
-public class GameUI : MonoBehaviour, IStartGameListener, IFinishGameListener
+using VContainer.Unity;
+public class GameUI : MonoBehaviour, IStartGameListener, IFinishGameListener, IInitializable, IDisposable
 {
     private GameController gameController;
     private IHealthComponent healthComponent;
@@ -16,6 +18,9 @@ public class GameUI : MonoBehaviour, IStartGameListener, IFinishGameListener
     
     [SerializeField]
     private Button resumeButton;
+
+    [SerializeField]
+    private GameObject background;
 
     [SerializeField]
     private TMP_Text hpText;
@@ -35,6 +40,7 @@ public class GameUI : MonoBehaviour, IStartGameListener, IFinishGameListener
 
     private void EnablePlayButton()
     {
+        background.SetActive(true);
         playButton.gameObject.SetActive(true);
         pauseButton.gameObject.SetActive(false);
         resumeButton.gameObject.SetActive(false);
@@ -42,18 +48,20 @@ public class GameUI : MonoBehaviour, IStartGameListener, IFinishGameListener
 
     private void EnablePauseButton()
     {
+        background.SetActive(false );
         playButton.gameObject.SetActive(false);
         pauseButton.gameObject.SetActive(true);
         resumeButton.gameObject.SetActive(false);
     }
     private void EnableResumeButton()
     {
+        background.SetActive(false );
         playButton.gameObject.SetActive(false);
         pauseButton.gameObject.SetActive(false);
         resumeButton.gameObject.SetActive(true);
     }
 
-    private void Start()
+    void IInitializable.Initialize()
     {
         EnablePlayButton();
         playButton.onClick.AddListener(ProcessPlayButtonClick);
@@ -61,7 +69,7 @@ public class GameUI : MonoBehaviour, IStartGameListener, IFinishGameListener
         resumeButton.onClick.AddListener(ProcessResumeButtonClick);
     }
 
-    private void OnDestroy()
+    void IDisposable.Dispose()
     {
         playButton.onClick.RemoveAllListeners();
         pauseButton.onClick.RemoveAllListeners();

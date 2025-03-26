@@ -4,13 +4,18 @@ using UnityEngine.UI;
 using VContainer;
 using VContainer.Unity;
 
-public class GameOverScreen : MonoBehaviour, IFinishGameListener, IStartGameListener
+public class GameOverScreen : MonoBehaviour, IFinishGameListener, IStartGameListener, IInitializable
 {
     [SerializeField]
     private Button replayButton;
 
     [Inject]
     private GameController gameController;
+
+    void IInitializable.Initialize()
+    {
+        gameObject.SetActive(false);
+    }
 
     void IFinishGameListener.FinishGame()
     {
@@ -35,4 +40,6 @@ public class GameOverScreen : MonoBehaviour, IFinishGameListener, IStartGameList
     {
         replayButton.onClick.RemoveAllListeners();
     }
+
+
 }

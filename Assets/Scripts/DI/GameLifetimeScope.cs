@@ -21,11 +21,12 @@ public class GameLifetimeScope : LifetimeScope
         builder.Register<MoveController>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
         builder.Register<KeyboardInput>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
 
-        builder.RegisterComponentInHierarchy<Player>().AsSelf().AsImplementedInterfaces();
+        builder.RegisterComponentInHierarchy<MoveComponent>().AsSelf().AsImplementedInterfaces();
         builder.RegisterComponentInHierarchy<HPComponent>().As<IHealthComponent>().As<IGameEventListener>();
 
 
         builder.RegisterEntryPoint<PausableTickersDispatcher>().AsSelf();
+
 
         builder.RegisterBuildCallback(container =>
         {
@@ -36,6 +37,8 @@ public class GameLifetimeScope : LifetimeScope
         {
             gameLoopManager.StopDispatching(container);
         });
+
+        builder.Register<Pool<Bullet>>(Lifetime.Singleton).AsSelf();
 
     }
 

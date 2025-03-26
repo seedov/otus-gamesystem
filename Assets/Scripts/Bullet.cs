@@ -6,13 +6,13 @@ using VContainer.Unity;
 
 namespace Lessons.Architecture.VContainer
 {
-    public class Bullet : MonoBehaviour
+    public class Bullet : MonoBehaviour, IPoolable
     {
         private float lifeTime;
         private IBulletsConfig bulletsConfig;
 
-        public event Action<Bullet> Destroyed;
         public event Action<Bullet> Hit;
+        public event Action<Bullet> LifetimeIsOver;
 
         [Inject]
         private void Construct(IBulletsConfig bulletsConfig)
@@ -25,18 +25,19 @@ namespace Lessons.Architecture.VContainer
             transform.position += transform.forward * deltaMove;
         }
 
+        public void Clear()
+        {
+            lifeTime = 0;
+        }
+
         public void CustomUpdate()
         {
 
             lifeTime += Time.deltaTime;
             if (lifeTime >= bulletsConfig.Lifetime)
-                Destroy(gameObject);
-            MoveForward(bulletsConfig.Speed);
-        }
-
-        private void OnDestroy()
-        {
-            Destroyed?.Invoke(this);
+                LifetimeIsOver?.Invoke(this);
+            else
+                MoveForward(bulletsConfig.Speed);
         }
 
         private void OnTriggerEnter(Collider collider)
@@ -45,10 +46,21 @@ namespace Lessons.Architecture.VContainer
             if(hpComponent != null)
             {
                 hpComponent.ApplyHpChange(bulletsConfig.AffectHp);
-                Destroy(gameObject);
+                Hit?.Invoke(this);
             }
         }
 
+        public void Spawn()
+        {
+            gameObject.SetActive(true);
+            Clear();
+        }
+
+        public void Despawn()
+        {
+            gameObject.SetActive(false);
+            Clear();
+        }
     }
 
 

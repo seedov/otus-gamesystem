@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>VContainer</RootNamespace>
-    <ProjectGuid>{D0AF9853-250E-EE55-7599-C938FC881487}</ProjectGuid>
+    <ProjectGuid>{65302363-D5A0-D4C4-E365-7503B1030429}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>VContainer</AssemblyName>

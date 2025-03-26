@@ -7,10 +7,10 @@ namespace Lessons.Architecture.VContainer
 {
     public sealed class MoveController : IInitializable, IDisposable
     {
-        private Player player;
+        private MoveComponent player;
         private KeyboardInput input;
 
-        public MoveController(Player player, KeyboardInput input)
+        public MoveController(MoveComponent player, KeyboardInput input)
         {
             this.player = player;
             this.input = input;

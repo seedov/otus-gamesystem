@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{FB1ABE56-BB6B-2BFB-0AA8-EA16D933D66C}</ProjectGuid>
+    <ProjectGuid>{E1198F9A-1D9B-4A7E-F9BC-32AF0FFC036B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>VContainer.Editor</AssemblyName>
@@ -1076,7 +1076,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="VContainer.csproj">
-      <Project>{D0AF9853-250E-EE55-7599-C938FC881487}</Project>
+      <Project>{65302363-D5A0-D4C4-E365-7503B1030429}</Project>
       <Name>VContainer</Name>
     </ProjectReference>
   </ItemGroup>

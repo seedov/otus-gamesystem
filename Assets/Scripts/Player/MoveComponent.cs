@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Lessons.Architecture.VContainer
 {
-    public sealed class Player : MonoBehaviour, IStartGameListener
+    public sealed class MoveComponent : MonoBehaviour, IStartGameListener
     {
         [SerializeField]
         private float speed = 2.5f;
@@ -19,7 +19,7 @@ namespace Lessons.Architecture.VContainer
 
         void IStartGameListener.StartGame()
         {
-            transform.position = Vector3.zero;
+            transform.position = Vector3.up;
         }
     }
 }
