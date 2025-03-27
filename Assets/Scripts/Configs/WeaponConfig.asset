@@ -15,4 +15,4 @@ MonoBehaviour:
   bulletConfig:
     speed: 1
     lifetime: 1
-    affectHp: 0
+    affectHp: -1

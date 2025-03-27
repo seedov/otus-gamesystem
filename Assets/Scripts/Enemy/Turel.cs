@@ -1,17 +1,18 @@
 
 using UnityEngine;
 using VContainer;
+using VContainer.Unity;
 
 
 namespace Lessons.Architecture.VContainer
 {
-    public class Turel : MonoBehaviour, IPauseTickable
+    public class Turel : MonoBehaviour, ITickable
     {
         [Inject]
-        MoveComponent player;
+        Player player;
 
 
-        void IPauseTickable.Tick()
+        public void Tick()
         {
             transform.LookAt(player.GetPosition());
         }

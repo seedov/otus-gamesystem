@@ -2,21 +2,27 @@ using System.Collections.Generic;
 using VContainer.Internal;
 using VContainer.Unity;
 using VContainer;
+using System;
+using System.ComponentModel;
 
 public interface IPauseTickable
 {
     public void Tick();
 }
-public interface IScopeDispatcher
-{
-    void StartDispatching(IObjectResolver container);
-    void StopDispatching(IObjectResolver container);
-}
-public class PausableTickersDispatcher : IScopeDispatcher, ITickable, IPauseGameListener, IResumeGameListener, IStartGameListener, IFinishGameListener
+
+public class PausableTickersDispatcher : 
+    IScopeDispatcher, 
+    ITickable, 
+    IPauseGameListener, IResumeGameListener, IStartGameListener, IFinishGameListener
 {
     private List<IPauseTickable> pauseTickables = new List<IPauseTickable>() ;
     private bool canTick;
 
+    //public PausableTickersDispatcher(IObjectResolver container)
+    //{
+    //    StartDispatching(container);
+    //    canTick = true;
+    //}
 
     public void StartDispatching(IObjectResolver container)
     {
@@ -62,5 +68,7 @@ public class PausableTickersDispatcher : IScopeDispatcher, ITickable, IPauseGame
     {
         canTick = false;
     }
+
+
 }
 

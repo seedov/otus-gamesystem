@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -8,23 +9,17 @@ namespace Lessons.Architecture.VContainer
     public class Pool<T> where T : MonoBehaviour , IPoolable
     {
         private Queue<T> pool = new();
-        private T prefab;
-        private IObjectResolver resolver;
+        private Func<T> CreateInstance;
 
-        public void SetPrefab(T prefab)
+        public Pool(Func<T> createInstanceFactory)
         {
-            this.prefab = prefab;
-        }
-
-        public Pool(IObjectResolver objectResolver)
-        {
-            resolver = objectResolver;
+            CreateInstance = createInstanceFactory;
         }
         public T Spawn()
         {
             if(!pool.TryDequeue(out T t))
             {
-                t = resolver.Instantiate(prefab);
+                t = CreateInstance();
             }
             t.Spawn();
             return t;

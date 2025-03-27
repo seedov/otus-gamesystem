@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
+using VContainer.Unity;
 
 namespace Lessons.Architecture.VContainer
 {
-    public class BulletsSpawner : MonoBehaviour,  IPauseTickable
+    public class BulletsSpawner : MonoBehaviour, ITickable
     {
         [SerializeField]
         private Bullet bulletPrefab;
@@ -25,12 +26,10 @@ namespace Lessons.Architecture.VContainer
         private void Construct(Pool<Bullet> pool)
         {
             bulletsPool = pool;
-            bulletsPool.SetPrefab(bulletPrefab);
         }
 
         private void CreateBullet()
         {
-
             var b = bulletsPool.Spawn();
             b.transform.position = transform.position;
             b.transform.rotation = transform.rotation;
@@ -59,7 +58,7 @@ namespace Lessons.Architecture.VContainer
         }
 
 
-        void IPauseTickable.Tick()
+        public void Tick()
         {
             if (timeSinceLastShot >= shotDelay)
             {

@@ -2,15 +2,21 @@
 using VContainer;
 using VContainer.Internal;
 using VContainer.Unity;
-public class GameEventsDispatcher: IScopeDispatcher
+public class GameEventsDispatcher: IScopeDispatcher, IInitializable
 {
     private List<IPauseGameListener> pauseGameListeners = new();
     private List<IResumeGameListener> resumeGameListeners = new();
     private List<IStartGameListener> startGameListeners = new();
     private List<IFinishGameListener> finishGameListeners = new();
-    public GameEventsDispatcher(IReadOnlyList<IGameEventListener> gameEventListeners)
+
+    //public GameEventsDispatcher(IReadOnlyList<IGameEventListener> gameEventListeners)
+    //{
+    //    AddRegistrations(gameEventListeners);
+    //}
+
+    public void Initialize()
     {
-        AddRegistrations(gameEventListeners);
+
     }
 
     void IScopeDispatcher.StartDispatching(IObjectResolver container)
@@ -86,4 +92,6 @@ public class GameEventsDispatcher: IScopeDispatcher
             listener.FinishGame();
         }
     }
+
+
 }
