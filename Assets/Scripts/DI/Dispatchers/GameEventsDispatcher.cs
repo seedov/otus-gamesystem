@@ -9,10 +9,10 @@ public class GameEventsDispatcher: IScopeDispatcher, IInitializable
     private List<IStartGameListener> startGameListeners = new();
     private List<IFinishGameListener> finishGameListeners = new();
 
-    public GameEventsDispatcher(IReadOnlyList<IGameEventListener> gameEventListeners)
-    {
-        AddRegistrations(gameEventListeners);
-    }
+    //public GameEventsDispatcher(IReadOnlyList<IGameEventListener> gameEventListeners)
+    //{
+    //    AddRegistrations(gameEventListeners);
+    //}
 
     public void Initialize()
     {

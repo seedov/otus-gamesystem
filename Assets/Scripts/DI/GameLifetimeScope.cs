@@ -1,4 +1,6 @@
 
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -14,6 +16,9 @@ namespace Lessons.Architecture.VContainer
         [SerializeField]
         private Bullet bulletPrefab;
 
+
+        private IEnumerable<IScopeDispatcher> dispatchers;
+
         protected override void Configure(IContainerBuilder builder)
         {
             RegisterConfigs(builder);
@@ -25,7 +30,31 @@ namespace Lessons.Architecture.VContainer
 
             RegisterBullets(builder);
 
-            RegisterTurel(builder);
+            //           RegisterTurel(builder);
+
+            builder.Register<GameController>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
+
+            RegisterGameCycle(builder);
+
+            RegisterUi(builder);
+
+            builder.RegisterBuildCallback(container =>
+            {
+
+                dispatchers = container.Resolve<IEnumerable<IScopeDispatcher>>();
+                foreach(var dispathcer in dispatchers)
+                {
+                    dispathcer.StartDispatching(container);
+                }
+            });
+
+            builder.RegisterDisposeCallback(container =>
+            {
+                foreach (var dispathcer in dispatchers)
+                {
+                    dispathcer.StopDispatching(container);
+                }
+            });
 
         }
 

@@ -7,7 +7,7 @@ using VContainer.Unity;
 
 namespace Lessons.Architecture.VContainer
 {
-    public class BulletsSpawner : MonoBehaviour, ITickable
+    public class BulletsSpawner : MonoBehaviour, IPauseTickable
     {
         [SerializeField]
         private Bullet bulletPrefab;

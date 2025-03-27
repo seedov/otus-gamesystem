@@ -6,7 +6,7 @@ using VContainer.Unity;
 
 namespace Lessons.Architecture.VContainer
 {
-    public class Turel : MonoBehaviour, ITickable
+    public class Turel : MonoBehaviour, IPauseTickable
     {
         [Inject]
         Player player;
