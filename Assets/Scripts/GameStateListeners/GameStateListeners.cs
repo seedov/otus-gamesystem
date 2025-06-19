@@ -1,20 +1,19 @@
-using UnityEngine;
 
-public interface IGameEventListener { }
-public interface IStartGameListener: IGameEventListener
+
+public interface IStartGameListener
 {
     public void StartGame();
 }
-public interface IPauseGameListener : IGameEventListener
+public interface IPauseGameListener 
 {
     public void PauseGame();
 }
-public interface IResumeGameListener : IGameEventListener
-{
+public interface IResumeGameListener 
+{ 
     public void ResumeGame();
 }
 
-public interface IFinishGameListener : IGameEventListener
+public interface IFinishGameListener 
 {
     public void FinishGame();
 }
