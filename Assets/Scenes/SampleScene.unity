@@ -451,6 +451,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 1279179843003725303, guid: 67fa423a4914efb4cacce5e555b5fc01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3814701336623670379, guid: 67fa423a4914efb4cacce5e555b5fc01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6531202997928719194, guid: 67fa423a4914efb4cacce5e555b5fc01, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7585146633011454907, guid: 67fa423a4914efb4cacce5e555b5fc01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -506,7 +518,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 459068669}
-  - component: {fileID: 459068670}
+  - component: {fileID: 459068672}
+  - component: {fileID: 459068673}
   m_Layer: 0
   m_Name: SceneObjects
   m_TagString: Untagged
@@ -533,7 +546,7 @@ Transform:
   - {fileID: 1321517331}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &459068670
+--- !u!114 &459068672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -542,17 +555,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 459068667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f5b5dbcbf9a7174da1da3a3e23c50e0, type: 3}
+  m_Script: {fileID: 11500000, guid: d2c20b60436dcf24bbcddc8ee2ed54b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentReference:
-    TypeName: 
-  autoRun: 1
-  autoInjectGameObjects:
-  - {fileID: 0}
-  keyboardKonfig: {fileID: 11400000, guid: 07b12d74c911deb43a16b9dd2c4557ab, type: 2}
-  weaponConfig: {fileID: 11400000, guid: 6c25eddf593517545af4ae375e326ef5, type: 2}
-  bulletPrefab: {fileID: 6864758808863621575, guid: 76d887667c5f93c468049c91ad17f33c, type: 3}
+--- !u!114 &459068673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459068667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e327c24aadfae4b8bcc4ecff5a140c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 73921773}
+  input: {fileID: 459068672}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,7 +773,6 @@ GameObject:
   - component: {fileID: 1225254301}
   - component: {fileID: 1225254300}
   - component: {fileID: 1225254299}
-  - component: {fileID: 1225254298}
   m_Layer: 0
   m_Name: Turel (1)
   m_TagString: Untagged
@@ -776,25 +794,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1223501}
-  - {fileID: 1438377994}
   m_Father: {fileID: 459068669}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1225254298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1225254296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f50141b6df16bc846b377722f681322a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentReference:
-    TypeName: Lessons.Architecture.VContainer.GameLifetimeScope
-  autoRun: 1
-  autoInjectGameObjects: []
 --- !u!114 &1225254299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,6 +808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c635f0dfc993514a84fbaf387e039e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 73921773}
 --- !u!23 &1225254300
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -974,51 +976,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1438377993
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1438377994}
-  - component: {fileID: 1438377995}
-  m_Layer: 0
-  m_Name: SpawnPonint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1438377994
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1438377993}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.733}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1225254297}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1438377995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1438377993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d679be99abbf1874eba6f9cc162d82b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6864758808863621575, guid: 76d887667c5f93c468049c91ad17f33c, type: 3}
 --- !u!1 &600812053674830604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,7 +988,6 @@ GameObject:
   - component: {fileID: 6816563766629820343}
   - component: {fileID: 1074766704700853110}
   - component: {fileID: 8553095938557592307}
-  - component: {fileID: 8553095938557592308}
   m_Layer: 0
   m_Name: Turel
   m_TagString: Untagged
@@ -1092,23 +1048,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4394532562474834272}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2889659231391391967
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6122019643306355068}
-  - component: {fileID: 8870873963044072328}
-  m_Layer: 0
-  m_Name: SpawnPonint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &4394532562474834272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,21 +1081,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6409399929023771794}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!4 &6122019643306355068
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2889659231391391967}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.733}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6409399929023771794}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &6393173700880402900
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1216,7 +1140,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4807953320446722058}
-  - {fileID: 6122019643306355068}
   m_Father: {fileID: 459068669}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6816563766629820343
@@ -1239,35 +1162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c635f0dfc993514a84fbaf387e039e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8553095938557592308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600812053674830604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f50141b6df16bc846b377722f681322a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentReference:
-    TypeName: Lessons.Architecture.VContainer.GameLifetimeScope
-  autoRun: 1
-  autoInjectGameObjects: []
---- !u!114 &8870873963044072328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2889659231391391967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d679be99abbf1874eba6f9cc162d82b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6864758808863621575, guid: 76d887667c5f93c468049c91ad17f33c, type: 3}
+  player: {fileID: 73921773}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

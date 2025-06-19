@@ -6,13 +6,13 @@ using VContainer.Unity;
 
 namespace Lessons.Architecture.VContainer
 {
-    public class Turel : MonoBehaviour, IPauseTickable
+    public class Turel : MonoBehaviour
     {
-        [Inject]
+        [SerializeField]
         Player player;
 
 
-        public void Tick()
+        private void Update()
         {
             transform.LookAt(player.GetPosition());
         }

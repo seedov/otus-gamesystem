@@ -9,8 +9,6 @@ public class GameOverScreen : MonoBehaviour, IFinishGameListener, IStartGameList
     [SerializeField]
     private Button replayButton;
 
-    [Inject]
-    private GameController gameController;
 
     void IInitializable.Initialize()
     {
@@ -29,7 +27,6 @@ public class GameOverScreen : MonoBehaviour, IFinishGameListener, IStartGameList
 
     private void OnReplayButtonClicked()
     {
-        gameController.StartGame();
     }
 
     private void OnEnable()

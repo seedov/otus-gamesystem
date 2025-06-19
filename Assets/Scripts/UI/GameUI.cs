@@ -5,10 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
 using VContainer.Unity;
-public class GameUI : MonoBehaviour, IStartGameListener, IFinishGameListener, IInitializable, IDisposable
+public class GameUI : MonoBehaviour, IStartGameListener, IFinishGameListener
 {
-    private GameController gameController;
-    private IHealthComponent healthComponent;
 
     [SerializeField]
     private Button playButton;
@@ -25,18 +23,7 @@ public class GameUI : MonoBehaviour, IStartGameListener, IFinishGameListener, II
     [SerializeField]
     private TMP_Text hpText;
 
-    [Inject]
-    private void Construct(GameController gameController, IHealthComponent healthComponent)
-    {
-        this.gameController = gameController;
-        this.healthComponent = healthComponent;
-        healthComponent.HpChanged += HealthComponent_HpChanged;
-    }
 
-    private void HealthComponent_HpChanged(float hp)
-    {
-        hpText.text = healthComponent.Hp.ToString();
-    }
 
     private void EnablePlayButton()
     {
@@ -61,7 +48,7 @@ public class GameUI : MonoBehaviour, IStartGameListener, IFinishGameListener, II
         resumeButton.gameObject.SetActive(true);
     }
 
-    void IInitializable.Initialize()
+    void Awake()
     {
         EnablePlayButton();
         playButton.onClick.AddListener(ProcessPlayButtonClick);
@@ -69,7 +56,7 @@ public class GameUI : MonoBehaviour, IStartGameListener, IFinishGameListener, II
         resumeButton.onClick.AddListener(ProcessResumeButtonClick);
     }
 
-    void IDisposable.Dispose()
+    void OnDestroy()
     {
         playButton.onClick.RemoveAllListeners();
         pauseButton.onClick.RemoveAllListeners();
@@ -77,26 +64,20 @@ public class GameUI : MonoBehaviour, IStartGameListener, IFinishGameListener, II
     }
     private void ProcessResumeButtonClick()
     {
-        gameController.ResumeGame();
-
         EnablePauseButton();
     }
     private void ProcessPlayButtonClick()
     {
-        gameController.StartGame();
-
         EnablePauseButton();
     }
     private void ProcessPauseButtonClick()
     {
-        gameController.PauseGame();
         EnableResumeButton();
     }
 
     void IStartGameListener.StartGame()
     {
         gameObject.SetActive(true);
-        hpText.text = healthComponent.Hp.ToString();
     }
 
     void IFinishGameListener.FinishGame()

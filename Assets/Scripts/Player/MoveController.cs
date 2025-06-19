@@ -5,9 +5,11 @@ using VContainer.Unity;
 
 namespace Lessons.Architecture.VContainer
 {
-    public sealed class MoveController : IInitializable, IDisposable
+    public sealed class MoveController : MonoBehaviour
     {
+        [SerializeField]
         private Player player;
+        [SerializeField]
         private KeyboardInput input;
 
         public MoveController(Player player, KeyboardInput input)
@@ -16,12 +18,12 @@ namespace Lessons.Architecture.VContainer
             this.input = input;
         }
 
-        void IInitializable.Initialize()
+        void Awake()
         {
             input.OnMove += OnMove;
         }
 
-        void IDisposable.Dispose()
+        void OnDestroy()
         {
             input.OnMove -= OnMove;
         }

@@ -4,36 +4,31 @@ using VContainer.Unity;
 
 namespace Lessons.Architecture.VContainer
 {
-    public sealed class KeyboardInput : IPauseTickable
+    public sealed class KeyboardInput : MonoBehaviour
     {
         public Action<Vector2> OnMove;
-        private IKeyboardInputConfig config;
 
-        public KeyboardInput(IKeyboardInputConfig config)
-        {
-            this.config = config;
-        }
 
-        public void Tick()
+        private void Update()
         {
             this.HandleKeyboard();
         }
 
         private void HandleKeyboard()
         {
-            if (Input.GetKey(config.Up))
+            if (Input.GetKey(KeyCode.UpArrow))
             {
                 this.Move(Vector2.up);
             }
-            else if (Input.GetKey(config.Down))
+            else if (Input.GetKey(KeyCode.DownArrow))
             {
                 this.Move(Vector2.down);
             }
-            else if (Input.GetKey(config.Left))
+            else if (Input.GetKey(KeyCode.LeftArrow))
             {
                 this.Move(Vector2.left);
             }
-            else if (Input.GetKey(config.Right))
+            else if (Input.GetKey(KeyCode.RightArrow))
             {
                 this.Move(Vector2.right);
             }
