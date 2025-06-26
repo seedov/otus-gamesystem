@@ -6,15 +6,16 @@ using VContainer.Unity;
 
 namespace Lessons.Architecture.VContainer
 {
-    public class Turel : MonoBehaviour
+    public class Turel : MonoBehaviour,  IPausableUpdatable
     {
         [SerializeField]
         Player player;
 
 
-        private void Update()
+
+        void IPausableUpdatable.PausableUpdate()
         {
-            transform.LookAt(player.GetPosition());
+                transform.LookAt(player.GetPosition());
         }
     }
 }

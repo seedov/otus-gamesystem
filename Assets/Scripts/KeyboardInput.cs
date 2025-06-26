@@ -4,13 +4,14 @@ using VContainer.Unity;
 
 namespace Lessons.Architecture.VContainer
 {
-    public sealed class KeyboardInput : MonoBehaviour
+    public sealed class KeyboardInput : MonoBehaviour, IPausableUpdatable
     {
         public Action<Vector2> OnMove;
 
 
-        private void Update()
+        void IPausableUpdatable.PausableUpdate()
         {
+
             this.HandleKeyboard();
         }
 

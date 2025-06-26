@@ -9,6 +9,9 @@ public class GameUI : MonoBehaviour, IStartGameListener, IFinishGameListener
 {
 
     [SerializeField]
+    private GameCycle gameCycle;
+
+    [SerializeField]
     private Button playButton;
 
     [SerializeField]
@@ -65,14 +68,17 @@ public class GameUI : MonoBehaviour, IStartGameListener, IFinishGameListener
     private void ProcessResumeButtonClick()
     {
         EnablePauseButton();
+        gameCycle.ResumeGame();
     }
     private void ProcessPlayButtonClick()
     {
         EnablePauseButton();
+        gameCycle.StartGame();
     }
     private void ProcessPauseButtonClick()
     {
         EnableResumeButton();
+        gameCycle.PauseGame();
     }
 
     void IStartGameListener.StartGame()
